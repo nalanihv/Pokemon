@@ -4,10 +4,10 @@ public class Objeto {
     //nombre - String
     //tipo - String
 
-    private double costo;
-    private int cantidad;
-    private String nombre;
-    private String tipo;
+    protected double costo;
+    protected int cantidad;
+    protected String nombre;
+    protected String tipo;
 
     public Objeto(double costo, int cantidad, String nombre, String tipo) {
         this.costo = costo;
