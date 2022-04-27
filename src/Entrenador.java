@@ -1,9 +1,56 @@
+import java.util.ArrayList;
+
 public class Entrenador extends Personaje{
 
     //region - String
     //torneosGanados - int
     //pokedex - Arraylist<Pokemon>
     //mochila - ArrayList<Objeto>
+
+    private String region;
+    private int torneosganados;
+    private ArrayList<Pokemon> pokedex = new ArrayList<>();
+    private ArrayList<Objeto> mochila = new ArrayList<>();
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public int getTorneosganados() {
+        return torneosganados;
+    }
+
+    public void setTorneosganados(int torneosganados) {
+        this.torneosganados = torneosganados;
+    }
+
+    public ArrayList<Pokemon> getPokedex() {
+        return pokedex;
+    }
+
+    public void setPokedex(ArrayList<Pokemon> pokedex) {
+        this.pokedex = pokedex;
+    }
+
+    public ArrayList<Objeto> getMochila() {
+        return mochila;
+    }
+
+    public void setMochila(ArrayList<Objeto> mochila) {
+        this.mochila = mochila;
+    }
+
+    public Entrenador(String nombre, int nivel, char genero, String region, int torneosganados, ArrayList<Pokemon> pokedex, ArrayList<Objeto> mochila) {
+        super(nombre, nivel, genero);
+        this.region = region;
+        this.torneosganados = torneosganados;
+        this.pokedex = pokedex;
+        this.mochila = mochila;
+    }
 
     //pelear - Abstracto implementado
         //escoger pokemon del pokedex

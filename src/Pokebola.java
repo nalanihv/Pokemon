@@ -7,6 +7,14 @@ public class Pokebola extends Objeto{
         this.efectividad = efectividad;
     }
 
+    public double getEfectividad() {
+        return efectividad;
+    }
+
+    public void setEfectividad(double efectividad) {
+        this.efectividad = efectividad;
+    }
+
     //atrapar/usar retorna true / false
     //revisar el tipo de pokemon
         //si es legendario le quitamos 40 de efectividad
