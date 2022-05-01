@@ -11,6 +11,15 @@ public class Entrenador extends Personaje{
     private int torneosganados;
     private ArrayList<Pokemon> pokedex = new ArrayList<>();
     private ArrayList<Objeto> mochila = new ArrayList<>();
+    private double dinero;
+
+    public double getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(double dinero) {
+        this.dinero = dinero;
+    }
 
     public String getRegion() {
         return region;
@@ -44,12 +53,15 @@ public class Entrenador extends Personaje{
         this.mochila = mochila;
     }
 
-    public Entrenador(String nombre, int nivel, char genero, String region, int torneosganados, ArrayList<Pokemon> pokedex, ArrayList<Objeto> mochila) {
+    public Entrenador(String nombre, int nivel, char genero, String region,
+                      int torneosganados, ArrayList<Pokemon> pokedex,
+                      ArrayList<Objeto> mochila, double dinero) {
         super(nombre, nivel, genero);
         this.region = region;
         this.torneosganados = torneosganados;
         this.pokedex = pokedex;
         this.mochila = mochila;
+        this.dinero = dinero;
     }
 
     //pelear - Abstracto implementado
@@ -83,6 +95,20 @@ public class Entrenador extends Personaje{
         //mostrar los elementos de mochila
         //que el usuario escoja cual tirar
 
+    public void tirarObjeto(int cantidadDeObjetos, int indiceObjeto){
+        cantidadDeObjetos = mochila.size();
+        System.out.println("Objetos disponibles: ");
+        for (Objeto objeto: mochila) {
+            System.out.println(mochila);
+        }
+        System.out.println("Digite el numero del objeto que decea tirar: ");
+        if(mochila.size() <= 0){
+            System.out.println("Ya no hay objetos para tirar");
+        } else {
+            mochila.remove(indiceObjeto);
+        }
+    }
+
     //intercambiar
         //mostrar la pokedex
         //mostrar la pokedex del entrenador opuesto
@@ -91,5 +117,9 @@ public class Entrenador extends Personaje{
         //y con random true o false acepta
         //si true
             //get y add + remove
+
+    public void intercambiarPokemon(){
+
+    }
 
 }
