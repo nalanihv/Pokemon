@@ -12,8 +12,17 @@ public class Pokemon extends Personaje{
     private Habilidad habilidad;
     private int hp;
     private  boolean esLegendario;
+    private String debilContra;
     private String fuerteContra;
     private int ataque;
+
+    public String getDebilContra() {
+        return debilContra;
+    }
+
+    public void setDebilContra(String debilContra) {
+        this.debilContra = debilContra;
+    }
 
     public String getTipo() {
         return tipo;
@@ -65,12 +74,13 @@ public class Pokemon extends Personaje{
 
     public Pokemon(String nombre, int nivel, char genero,
                    String tipo, Habilidad habilidad, int hp, boolean esLegendario,
-                   String fuerteContra, int ataque) {
+                   String debilContra, String fuerteContra, int ataque) {
         super(nombre, nivel, genero);
         this.tipo = tipo;
         this.habilidad = habilidad;
         this.hp = hp;
         this.esLegendario = esLegendario;
+        this.debilContra = debilContra;
         this.fuerteContra = fuerteContra;
         this.ataque = ataque;
     }
