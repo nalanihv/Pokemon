@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Entrenador extends Personaje{
 
@@ -85,6 +87,8 @@ public class Entrenador extends Personaje{
         //si escoge velocidad
             //hay que validar si hay pocion/baya de +velocidad, usar
 
+    Scanner sc = new Scanner(System.in);
+    Random random = new Random();
 
     //ganar metodo -> el entrenador opuesto ya no tienepokemones
         //nivel 1 = 10 xp pokemon y entrenador
@@ -95,13 +99,13 @@ public class Entrenador extends Personaje{
         //mostrar los elementos de mochila
         //que el usuario escoja cual tirar
 
-    public void tirarObjeto(int cantidadDeObjetos, int indiceObjeto){
-        cantidadDeObjetos = mochila.size();
+    public void tirarObjeto(int indiceObjeto){
         System.out.println("Objetos disponibles: ");
         for (Objeto objeto: mochila) {
             System.out.println(mochila);
         }
         System.out.println("Digite el numero del objeto que decea tirar: ");
+        indiceObjeto = sc.nextInt();
         if(mochila.size() <= 0){
             System.out.println("Ya no hay objetos para tirar");
         } else {
@@ -118,8 +122,31 @@ public class Entrenador extends Personaje{
         //si true
             //get y add + remove
 
-    public void intercambiarPokemon(){
 
+
+    public void intercambiarPokemon(int indicePokemonPropio, int indicePokemonAjeno, boolean probabilidad){
+
+        System.out.println("Pokemones disponibles del entrenador " + nombre + ": ");
+        for (Pokemon pokemon: pokedex) {
+            System.out.println(pokedex);
+        }
+
+        System.out.println("Pokemones disponibles del entrenador " + nombre + ": ");
+        for (Pokemon pokemon: pokedex) {
+            System.out.println(pokedex);
+        } //No se me ocurre como mostrar la pokedex del otro entrenador
+
+        System.out.println("¿Que pokemon deceas intercambiar?");
+        indicePokemonAjeno = sc.nextInt();
+        System.out.println("Que pokemon ofreses?");
+        indicePokemonPropio = sc.nextInt();
+
+        probabilidad = random.nextInt(100) > 60;
+        if(probabilidad){
+
+        } else {
+            System.out.println("El otro entrenador no accedio a intercambiar su pokemon");
+        }
     }
 
 }
