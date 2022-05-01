@@ -1,83 +1,116 @@
 import java.util.ArrayList;
 
 public class Tienda {
+     /*atributos:
+   nombre- string
+    objetos disponibles -arrays<objetos>
+    metodos:
+    comprar
+    vender
+     */
 
-    //Atributos
-    //nombre - String
-    //objetos disponibles - ArrayList<Objetos>
     private String nombre;
-    private ArrayList<Objeto> objetosDisponibles = new ArrayList<>();
+    private ArrayList<Objeto>objetosDisponibles;
+
+    public String getNombre()
+    {
+        return nombre;}
+    public void setNombre(String nombre)
+    {
+        this.nombre = nombre;}
+
+
+    public ArrayList<Objeto> getObjetosDisponibles()
+    {
+        return objetosDisponibles;}
+    public void setObjetosDisponibles(ArrayList<Objeto> objetosDisponibles)
+    {
+        this.objetosDisponibles = objetosDisponibles;}
+
 
     public Tienda(String nombre, ArrayList<Objeto> objetosDisponibles) {
         this.nombre = nombre;
         this.objetosDisponibles = objetosDisponibles;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public ArrayList<Objeto> getObjetosDisponibles() {
-        return objetosDisponibles;
-    }
-
-    public void setObjetosDisponibles(ArrayList<Objeto> objetosDisponibles) {
-        this.objetosDisponibles = objetosDisponibles;
-    }
-
-    //metodos
-    //comprar
     public boolean usuarioComprar(double dinero, int cantidad, int indiceObjeto){
-            // Todo validar que hay suficientes objetos del tipo requerido(?)
-            //Si hay cantidad y existe en el arreglo
-                //Si si tengo dinero suficiente
-                    //le vendo
-                //Si no
-                    //Mostrar que no le alcanza
-            //Sino
-                //hacer una excepcion de que no hay la cantidad que pide
-                //repetimos pregunta
-        if(indiceObjeto > objetosDisponibles.size()) {
-            System.out.println("Error");
+
+        if(indiceObjeto>objetosDisponibles.size()){
+            System.out.println("Error no existe ese objeto");
             return false;
-        } else {
-            if (objetosDisponibles.get(indiceObjeto).cantidad >= cantidad) {
-                double presioTotal = cantidad * objetosDisponibles.get(indiceObjeto).costo;
-                if(dinero >= presioTotal){
-                    System.out.println("Usted esta comprando " + cantidad + " " + objetosDisponibles.get(indiceObjeto).nombre + " por $" + presioTotal);
-                    System.out.println("Su cambio es: " + (dinero-presioTotal));
+        }else{
+            if(objetosDisponibles.get(indiceObjeto).cantidad >=cantidad) {
+                double precioTotal=cantidad*objetosDisponibles.get(indiceObjeto).costo;
+                if(precioTotal>=dinero){
+                    System.out.println("usted esta comprando"+cantidad+" "+objetosDisponibles.get(indiceObjeto).nombre +"por $" +precioTotal);
+                    System.out.println("Su cambio es: "+(dinero-precioTotal));
                     return true;
-                } else {
-                    System.out.println("No le alcanza, le falta: " + (presioTotal - dinero));
-                    return  false;
+                }else {
+                    System.out.println("No le alcanza, le faltan:" + (precioTotal-dinero));
+                    return false;
                 }
-            } else {
+            }else{
                 System.out.println("No tenemos la cantidad solicitada");
                 return false;
             }
         }
+        /* validad que haya suficientes objetos del tipo requerido :
+        cantidad y existe en el arreglo
+        si si
+        if si(validar el dinero suficiente){
+        le vendo
+        }else{"no le alcanza"}
+        else() //exepcion de que no hay la cantidad que  pide
+        se repite la pregunta
+         */ 
     }
-
-    //vender
     public boolean usuarioVender(Objeto objeto, int cantidad){
-        //logica inversa de comprar
-        System.out.println(objeto.getClass());
-        //dinero infinito en la tienda
-        //recibir objetos y darle el dinero
-        return false;
+       System.out.println(objeto.getClass());
+        System.out.println("seleccione un objeto para vender");//como se selecciona?
+        objeto.getNombre();
+        //selecciona
+        if (objeto.getNombre() == "baya"){
+            System.out.println("No se puede vender");
+            return false;//return false?}  //sino continua, recibes los objetos y das el precio
+        }
+        else {
+            System.out.println("cantidad:");
+            objeto.getCantidad();
+            System.out.println("precio:");
+            objeto.getCosto();
+            System.out.println("Vendido ");
+            //.add y .remove
+        }
+        //usar clase objeto
+      /*clase objeto tiene:
+    costo- double
+    cantidad- entero
+    nombre- string
+    tipo- string
+     */
+
+        /*inverso de comprar
+        dinero infinito
+        recibir objetos y dar el dinero
+        no se compra cuando el usuario quiera vendernos una baya
+         */
+
+        return false; //?
+    }
+    public void mostrarDisponibles(){
+        //objetos disponiblres
+        System.out.println("Los objetos disponibles son: ");
+        int indice=1;
+
+        for (Objeto objeto:objetosDisponibles) {
+            System.out.println(indice + " - ");//1 - pocicion vida
+
+            System.out.println(objeto); //toString ya 
+            indice++;
+        }
+
     }
 
-    public void mostrarDisponibles(){
-        System.out.println("los objetos disponibles son: ");
-        int indice = 1;
-        for (Objeto objeto:objetosDisponibles) {
-            System.out.println(indice+"");
-            System.out.println(objeto); // falta implementar to string
-        }
-    }
+    
 
 }
